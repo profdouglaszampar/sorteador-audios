@@ -5,47 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sorteador de Áudios</title>
 
-    <script>
-    const lista1 = [
-      "lista1/1.mp3",
-      "lista1/2.mp3",
-      "lista1/3.mp3"
-    ];
-
-    const lista2 = [
-      "lista2/1.mp3",
-      "lista2/2.mp3",
-      "lista2/3.mp3",
-      "lista2/4.mp3",
-      "lista2/5.mp3"
-    ];
-
-    let ultimoAudio = null; // guarda o último áudio tocado
-
-    function tocarAudio(lista) {
-      let sorteado;
-
-      do {
-        sorteado = lista[Math.floor(Math.random() * lista.length)];
-      } while (sorteado === ultimoAudio && lista.length > 1);
-
-      ultimoAudio = sorteado;
-
-      const player = document.getElementById("player");
-      player.src = sorteado;
-      player.load();
-      player.play();
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-  </script>
+
+    .container {
+      background: white;
+      width: 100%;
+      max-width: 420px;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #1f2937;
+    }
+
+    button {
+      width: 100%;
+      font-size: 17px;
+      padding: 14px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 12px;
+      background: #4f46e5;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.1s, background 0.2s;
+    }
+
+    button:hover {
+      background: #4338ca;
+      transform: scale(1.02);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    audio {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .footer {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+  </style>
 </head>
 <body>
 
-  <h2>Sorteador de Áudios 🎧</h2>
+  <div class="container">
+    <h2>🎧 Sorteador de Áudios</h2>
 
-  <button onclick="tocarAudio(lista1)">🎲 Apps, Softawe and Systems dialogues 1-3</button>
-  <button onclick="tocarAudio(lista2)">🎲 Apps, Softawe and Systems dialogues 1-5</button>
+    <button onclick="tocarAudio(lista1)">
+      🎲 Apps, Software & Systems — Lista 1
+    </button>
 
-  <audio id="player" controls></audio>
+    <button onclick="tocarAudio(lista2)">
+      🎲 Apps, Software & Systems — Lista 2
+    </button>
+
+    <audio id="player" controls></audio>
+
+    <div class="footer">
+      Toque no botão para sortear um áudio
+    </div>
+  </div>
 
   <script>
     const lista1 = [
@@ -62,20 +101,23 @@
       "lista2/5.mp3"
     ];
 
+    let ultimoAudio = null;
+
     function tocarAudio(lista) {
-      const sorteado = lista[Math.floor(Math.random() * lista.length)];
+      let sorteado;
+
+      do {
+        sorteado = lista[Math.floor(Math.random() * lista.length)];
+      } while (sorteado === ultimoAudio && lista.length > 1);
+
+      ultimoAudio = sorteado;
+
       const player = document.getElementById("player");
       player.src = sorteado;
+      player.load();
       player.play();
     }
   </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
