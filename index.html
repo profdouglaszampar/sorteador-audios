@@ -5,38 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sorteador de Áudios</title>
 
-  <script>
-  const lista1 = [
-    "lista1/1.mp3",
-    "lista1/2.mp3",
-    "lista1/3.mp3"
-  ];
+    <script>
+    const lista1 = [
+      "lista1/1.mp3",
+      "lista1/2.mp3",
+      "lista1/3.mp3"
+    ];
 
-  const lista2 = [
-    "lista2/1.mp3",
-    "lista2/2.mp3",
-    "lista2/3.mp3",
-    "lista2/4.mp3",
-    "lista2/5.mp3"
-  ];
+    const lista2 = [
+      "lista2/1.mp3",
+      "lista2/2.mp3",
+      "lista2/3.mp3",
+      "lista2/4.mp3",
+      "lista2/5.mp3"
+    ];
 
-  let ultimoAudio = null; // guarda o último áudio tocado
+    let ultimoAudio = null; // guarda o último áudio tocado
 
-  function tocarAudio(lista) {
-    let sorteado;
+    function tocarAudio(lista) {
+      let sorteado;
 
-    do {
-      sorteado = lista[Math.floor(Math.random() * lista.length)];
-    } while (sorteado === ultimoAudio && lista.length > 1);
+      do {
+        sorteado = lista[Math.floor(Math.random() * lista.length)];
+      } while (sorteado === ultimoAudio && lista.length > 1);
 
-    ultimoAudio = sorteado;
+      ultimoAudio = sorteado;
 
-    const player = document.getElementById("player");
-    player.src = sorteado;
-    player.load();
-    player.play();
-  }
-</script>
+      const player = document.getElementById("player");
+      player.src = sorteado;
+      player.load();
+      player.play();
+    }
+  </script>
 </head>
 <body>
 
@@ -72,6 +72,7 @@
 
 </body>
 </html>
+
 
 
 
