@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteador de Áudios</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 20px;
+      margin: 10px;
+      width: 90%;
+      max-width: 300px;
+    }
+
+    audio {
+      margin-top: 20px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Sorteador de Áudios 🎧</h2>
+
+  <button onclick="tocarAudio(lista1)">🎲 Sortear – Lista 1</button>
+  <button onclick="tocarAudio(lista2)">🎲 Sortear – Lista 2</button>
+
+  <audio id="player" controls></audio>
+
+  <script>
+    const lista1 = [
+      "lista1/audio1.mp3",
+      "lista1/audio2.mp3",
+      "lista1/audio3.mp3"
+    ];
+
+    const lista2 = [
+      "lista2/a1.mp3",
+      "lista2/a2.mp3",
+      "lista2/a3.mp3"
+    ];
+
+    function tocarAudio(lista) {
+      const sorteado = lista[Math.floor(Math.random() * lista.length)];
+      const player = document.getElementById("player");
+      player.src = sorteado;
+      player.play();
+    }
+  </script>
+
+</body>
+</html>
